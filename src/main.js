@@ -1,8 +1,11 @@
+// main.js
+
 import { fetchImages } from './js/pixabay-api.js';
-import { renderGallery } from './js/render-functions.js';
+import { renderImages, clearGallery } from './js/render-functions.js';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import './css/styles.css';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const formElement = document.querySelector('.search-form');
 const inputElement = document.querySelector('.search-input');
@@ -14,16 +17,20 @@ formElement.addEventListener('submit', onFormSubmit);
 loadMoreButton.addEventListener('click', onLoadMoreClick);
 
 async function onFormSubmit(event) {
-  event.preventDefault();
-  const query = inputElement.value.trim();
+    event.preventDefault();
+    const query = inputElement.value.trim();
 
-  if (!query) {
-    iziToast.error({
-      title: 'Ошибка',
-      message: 'Пожалуйста, введите запрос для поиска.',
-    });
-    return;
-  }
+    if (!query) {
+        iziToast.error({
+            title: 'Ошибка',
+            message: 'Пожалуйста, введите запрос для поиска.',
+        });
+        return;
+    }
+
+    currentQuery = query;
+    currentPage = 
+
 
   currentQuery = query;
   currentPage = 1;
