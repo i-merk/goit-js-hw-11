@@ -1,4 +1,3 @@
-
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -18,7 +17,15 @@ export function renderImages(images) {
   lightbox.refresh();
 }
 
-function createImageCardMarkup({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
+function createImageCardMarkup({
+  webformatURL,
+  largeImageURL,
+  tags,
+  likes,
+  views,
+  comments,
+  downloads,
+}) {
   return `
     <div class="photo-card">
       <a href="${largeImageURL}" class="gallery-link">
@@ -33,4 +40,3 @@ function createImageCardMarkup({ webformatURL, largeImageURL, tags, likes, views
     </div>
   `;
 }
-

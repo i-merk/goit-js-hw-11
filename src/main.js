@@ -17,22 +17,19 @@ formElement.addEventListener('submit', onFormSubmit);
 loadMoreButton.addEventListener('click', onLoadMoreClick);
 
 async function onFormSubmit(event) {
-    event.preventDefault();
-    const query = inputElement.value.trim();
+  event.preventDefault();
+  const query = inputElement.value.trim();
 
-    if (!query) {
-        iziToast.error({
-            title: 'Ошибка',
-            message: 'Пожалуйста, введите запрос для поиска.',
-        });
-        return;
-    }
-
-    currentQuery = query;
-    currentPage = 
-
+  if (!query) {
+    iziToast.error({
+      title: 'Ошибка',
+      message: 'Пожалуйста, введите запрос для поиска.',
+    });
+    return;
+  }
 
   currentQuery = query;
+  currentPage = currentQuery = query;
   currentPage = 1;
   clearGallery();
 
@@ -41,7 +38,8 @@ async function onFormSubmit(event) {
     if (images.length === 0) {
       iziToast.info({
         title: 'Нет результатов',
-        message: 'Изображения по данному запросу не найдены. Попробуйте другой запрос.',
+        message:
+          'Изображения по данному запросу не найдены. Попробуйте другой запрос.',
       });
       return;
     }
@@ -55,7 +53,8 @@ async function onFormSubmit(event) {
   } catch (error) {
     iziToast.error({
       title: 'Ошибка',
-      message: 'Произошла ошибка при поиске изображений. Пожалуйста, попробуйте позже.',
+      message:
+        'Произошла ошибка при поиске изображений. Пожалуйста, попробуйте позже.',
     });
   }
 }
@@ -78,7 +77,8 @@ async function onLoadMoreClick() {
   } catch (error) {
     iziToast.error({
       title: 'Ошибка',
-      message: 'Произошла ошибка при загрузке изображений. Пожалуйста, попробуйте позже.',
+      message:
+        'Произошла ошибка при загрузке изображений. Пожалуйста, попробуйте позже.',
     });
   }
 }
