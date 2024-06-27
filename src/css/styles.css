@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  
   margin: 0 auto;
   padding: 20px;
 }
@@ -34,31 +34,6 @@ button {
   gap: 10px;
 }
 
-.photo-card {
-  width: calc(33.333% - 10px);
-  flex-grow: 1; /* Ensures uniform size by allowing cards to expand */
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  margin-bottom: 20px; /* Adjust spacing between cards */
-}
-
-.photo-card img {
-  width: 100%;
-  display: block;
-  height: 200px; /* Set a fixed height to ensure uniformity */
-  object-fit: cover; /* Ensures images maintain aspect ratio */
-}
-
-.info {
-  padding: 10px;
-  text-align: center;
-}
-
-.info-item {
-  margin: 5px 0;
-}
 
 .load-more {
   display: block;
@@ -74,4 +49,41 @@ button {
 
 .hidden {
   display: none;
+}
+.photo-card {
+  width: 360px;
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.photo-card img {
+  width: 360px;
+  display: block;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 10px;
+  text-align: justify;
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-item {
+  margin: 5px;
+  font-size: medium;
+}
+
+.info-item b {
+  margin-right: 2%;
 }
