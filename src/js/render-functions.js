@@ -7,13 +7,14 @@ export function clearGallery() {
   galleryElement.innerHTML = '';
 }
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
 export function renderImages(images) {
   const markup = images.map(image => createImageCardMarkup(image)).join('');
   galleryElement.insertAdjacentHTML('beforeend', markup);
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
   lightbox.refresh();
 }
 

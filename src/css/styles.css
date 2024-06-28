@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -20,6 +19,42 @@ body {
   margin: 38px auto;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1000;
+}
+
+.loader::before {
+  content: '';
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .search-input {
   width: 272px;
   flex: 1;
@@ -27,7 +62,6 @@ body {
   font-size: 16px;
   border-radius: 4px;
   border-color: #808080;
-  
 }
 
 button {
@@ -35,14 +69,13 @@ button {
   font-size: 16px;
   margin-left: 10px;
   border-radius: 8px;
-  border-color: #4E75FF;
+  border-color: #4e75ff;
   color: #f2f2f7;
-  background-color: #4E75FF;
-
+  background-color: #4e75ff;
 }
-button:active {background-color: #6C8CFF; 
+button:active {
+  background-color: #6c8cff;
   transform: scale(0.98);
-
 }
 
 .gallery {
@@ -52,18 +85,6 @@ button:active {background-color: #6C8CFF;
 }
 
 
-.load-more {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
 .hidden {
   display: none;
 }
@@ -72,7 +93,7 @@ button:active {background-color: #6C8CFF;
   flex-grow: 1;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -103,4 +124,44 @@ button:active {background-color: #6C8CFF;
 
 .info-item b {
   margin-right: 2%;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  flex-direction: column; 
+  font-size: 1rem; 
+  color: #333; 
+  text-align: center; 
+}
+
+.loader::before {
+  content: '';
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px; 
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

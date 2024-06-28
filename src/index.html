@@ -17,19 +17,16 @@
   <body>
     <div class="container">
       <form class="search-form">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Поиск изображений..."
-          required
-        />
-        <button type="submit">Искать</button>
+        <input type="text" class="search-input" placeholder="Поиск изображений...">
+        <button type="submit">Найти</button>
       </form>
+      <div class="loader hidden">
+        Loading images, please wait...
+      </div>
       <div class="gallery"></div>
-      <button class="load-more hidden">Загрузить ещё</button>
-    </div>
     <script type="module" src="./main.js" defer></script>
     <script type="module" src="./js/pixabay-api.js"></script>
     <script type="module" src="./js/render-functions.js"></script>
   </body>
 </html>
+

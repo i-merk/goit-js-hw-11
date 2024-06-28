@@ -10,6 +10,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const formElement = document.querySelector('.search-form');
 const inputElement = document.querySelector('.search-input');
 const loadMoreButton = document.querySelector('.load-more');
+const loader = document.querySelector('.loader');
 let currentPage = 1;
 let currentQuery = '';
 
@@ -23,7 +24,7 @@ async function onFormSubmit(event) {
   if (!query) {
     iziToast.error({
       title: 'Ошибка',
-      message: 'Пожалуйста, введите запрос для поиска.',
+      message: 'Search images',
     });
     return;
   }
@@ -32,6 +33,7 @@ async function onFormSubmit(event) {
   currentPage = currentQuery = query;
   currentPage = 1;
   clearGallery();
+  showLoader();
 
   try {
     const images = await fetchImages(query, currentPage);
@@ -39,7 +41,7 @@ async function onFormSubmit(event) {
       iziToast.info({
         title: 'Нет результатов',
         message:
-          'Изображения по данному запросу не найдены. Попробуйте другой запрос.',
+          'Sorry, there are no images matching your search query. Please try again!',
       });
       return;
     }
@@ -49,36 +51,15 @@ async function onFormSubmit(event) {
       title: 'Успех',
       message: `Найдено ${images.length} изображений.`,
     });
-    loadMoreButton.classList.remove('hidden');
-  } catch (error) {
-    iziToast.error({
-      title: 'Ошибка',
-      message:
-        'Произошла ошибка при поиске изображений. Пожалуйста, попробуйте позже.',
-    });
+  } finally {
+    hideLoader();
   }
-}
 
-async function onLoadMoreClick() {
-  currentPage += 1;
+  function showLoader() {
+    loader.classList.remove('hidden');
+  }
 
-  try {
-    const images = await fetchImages(currentQuery, currentPage);
-    if (images.length === 0) {
-      iziToast.info({
-        title: 'Конец списка',
-        message: 'Больше изображений по данному запросу нет.',
-      });
-      loadMoreButton.classList.add('hidden');
-      return;
-    }
-
-    renderImages(images);
-  } catch (error) {
-    iziToast.error({
-      title: 'Ошибка',
-      message:
-        'Произошла ошибка при загрузке изображений. Пожалуйста, попробуйте позже.',
-    });
+  function hideLoader() {
+    loader.classList.add('hidden');
   }
 }
